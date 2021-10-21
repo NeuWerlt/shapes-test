@@ -96,8 +96,10 @@ class AccountAdapter(DefaultAccountAdapter):
         Profile.objects.get_or_create(id=user, **kwargs)
 
         # add group
-        user.groups.add(
-            Group.objects.filter(name=settings.DEFAULT_GROUP_NAME).first())
+        # add group
+        default_group, _ = Group.objects.get_or_create(
+            name=settings.DEFAULT_GROUP_NAME)
+        user.groups.add(default_group)
 
     def get_email_confirmation_url(self, request, emailconfirmation):
         """Constructs the email confirmation (activation) url.
