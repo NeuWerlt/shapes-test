@@ -17,7 +17,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 import sentry_sdk
 import newrelic.agent
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['shapes-test-hz5rukmfaq-uc.a.run.app']
 
 
